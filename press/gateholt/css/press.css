@@ -82,6 +82,7 @@ html[data-lang="ko"] .en { display: none !important; }
 html[data-lang="ko"] .sub { letter-spacing: 0.1em; }
 html[data-lang="ko"] .fact-title { letter-spacing: 0.14em; }
 html[data-lang="ko"] .hero-tagline { letter-spacing: 0.08em; text-indent: 0.08em; }
+html[data-lang="ko"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
 
 /* ---- 필름 그레인 (전면 고정 오버레이) ---- */
 .grain {
