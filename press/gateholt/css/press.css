@@ -115,6 +115,14 @@ html[data-lang="ko"] .hero-tagline { letter-spacing: 0.08em; text-indent: 0.08em
 }
 .topbar-brand:hover { color: var(--ink-hi); }
 .topbar-sep { color: var(--blood); margin: 0 8px; }
+.topbar-nav { display: flex; gap: 24px; }
+.topbar-nav a {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-dim);
+  text-decoration: none;
+}
+.topbar-nav a:hover { color: var(--blood-hi); }
 .lang-toggle { display: flex; align-items: center; gap: 8px; }
 .lang-sep { color: var(--ink-faint); }
 .lang-btn {
@@ -602,6 +610,7 @@ html[data-lang="ko"] .hero-tagline { letter-spacing: 0.08em; text-indent: 0.08em
   .factsheet { position: static; }
   .sec-head { font-size: 24px; }
   .hero { min-height: 76vh; }
+  .topbar-nav { display: none; }
 }
 @media (max-width: 640px) {
   .shots, .features { grid-template-columns: 1fr; }
