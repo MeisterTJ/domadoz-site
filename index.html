@@ -14,25 +14,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 34px;
+    gap: 30px;
     background: #0a0908;
     color: #ddd6cc;
     font-family: Consolas, 'Malgun Gothic', monospace;
     text-align: center;
     padding: 24px;
   }
-  .brand {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0.5em;
-    text-indent: 0.5em;
-    color: #f0eae1;
+  .brand-logo {
+    width: min(560px, 86vw);
+    height: auto;
   }
   .sub { font-size: 12px; letter-spacing: 0.25em; color: #948c83; }
   a.card {
     display: block;
-    border: 1px solid #a1242a;
-    background: rgba(161, 36, 42, 0.07);
+    border: 1px solid #fe7d35;
+    background: rgba(254, 125, 53, 0.06);
     color: #ddd6cc;
     text-decoration: none;
     font-size: 13px;
@@ -40,12 +37,12 @@
     padding: 18px 42px;
     transition: background 0.18s ease, color 0.18s ease;
   }
-  a.card:hover { background: #a1242a; color: #f0eae1; }
+  a.card:hover { background: #fe7d35; color: #14100c; }
   .fine { font-size: 11px; color: #675f59; letter-spacing: 0.1em; }
 </style>
 </head>
 <body>
-  <p class="brand">DOMADOZ</p>
+  <img class="brand-logo" src="img/domadoz-logo.png" alt="DOMADOZ" width="840" height="188">
   <p class="sub">INDEPENDENT GAME DEVELOPER</p>
   <a class="card" href="press/gateholt/">GATEHOLT &mdash; PRESS KIT</a>
   <p class="fine">&copy; 2026 DOMADOZ</p>

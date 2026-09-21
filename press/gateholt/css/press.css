@@ -527,13 +527,10 @@ html[data-lang="ko"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
   color: var(--ink-dim);
   line-height: 2;
 }
-.footer-brand {
-  font-family: var(--disp);
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.34em;
-  color: var(--ink);
-  margin-bottom: 10px;
+.footer-brand-logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 14px;
 }
 .footer a { color: var(--ink-dim); }
 .footer a:hover { color: var(--blood-hi); }
