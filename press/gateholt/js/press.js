@@ -1,31 +1,30 @@
-/* Gateholt 프레스킷 — 언어 토글 · 라이트박스 · 스크롤 리빌 (외부 의존성 없음) */
+/* Gateholt 프레스킷 — 언어 전환 · 라이트박스 · 스크롤 리빌 (외부 의존성 없음) */
 (function () {
   'use strict';
 
-  /* ---- 언어 토글: html[data-lang]만 바꾸면 CSS가 표시를 전환한다 ---- */
+  /* ---- 언어 전환: html[data-lang]만 바꾸면 CSS가 표시를 전환한다 ---- */
   var KEY = 'gateholt-press-lang';
   var root = document.documentElement;
-  var langButtons = Array.prototype.slice.call(document.querySelectorAll('.lang-btn'));
+  var select = document.getElementById('lang-select');
+  /* data-lang 코드 → BCP 47 lang 속성값 */
+  var LANGS = { en: 'en', ko: 'ko', ja: 'ja', fr: 'fr', de: 'de', es: 'es', ru: 'ru', zh: 'zh-Hans', pt: 'pt-BR' };
 
   function setLang(lang) {
+    if (!LANGS[lang]) { lang = 'en'; }
     root.dataset.lang = lang;
-    root.lang = lang;
+    root.lang = LANGS[lang];
+    select.value = lang;
     try { localStorage.setItem(KEY, lang); } catch (e) { /* 프라이빗 모드 등 */ }
-    langButtons.forEach(function (b) {
-      b.classList.toggle('active', b.dataset.setLang === lang);
-    });
   }
 
   /* 초기 언어: ?lang= 쿼리 > localStorage > 기본 en */
   var initial = new URLSearchParams(location.search).get('lang');
-  if (initial !== 'en' && initial !== 'ko') {
+  if (!LANGS[initial]) {
     try { initial = localStorage.getItem(KEY); } catch (e) { initial = null; }
   }
-  setLang(initial === 'ko' ? 'ko' : 'en');
+  setLang(LANGS[initial] ? initial : 'en');
 
-  langButtons.forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.dataset.setLang); });
-  });
+  select.addEventListener('change', function () { setLang(select.value); });
 
   /* ---- 라이트박스 ---- */
   var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));

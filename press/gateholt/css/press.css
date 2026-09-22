@@ -74,15 +74,27 @@ a:hover { color: var(--blood-hi); }
 
 [hidden] { display: none !important; }
 
-/* ---- 언어 토글: html[data-lang]이 표시 언어를 정한다 ---- */
-html[data-lang="en"] .ko { display: none !important; }
-html[data-lang="ko"] .en { display: none !important; }
+/* ---- 언어 전환: html[data-lang]이 표시 언어를 정한다.
+   .l-xx 요소는 해당 언어가 선택된 동안만 보인다 (기본 en은 마크업 기본값) ---- */
+html:not([data-lang="en"]) .l-en { display: none !important; }
+html:not([data-lang="ko"]) .l-ko { display: none !important; }
+html:not([data-lang="ja"]) .l-ja { display: none !important; }
+html:not([data-lang="fr"]) .l-fr { display: none !important; }
+html:not([data-lang="de"]) .l-de { display: none !important; }
+html:not([data-lang="es"]) .l-es { display: none !important; }
+html:not([data-lang="ru"]) .l-ru { display: none !important; }
+html:not([data-lang="zh"]) .l-zh { display: none !important; }
+html:not([data-lang="pt"]) .l-pt { display: none !important; }
 
-/* 한글은 라틴만큼 자간을 벌리면 어색하다 — KO 모드에서만 줄인다 */
-html[data-lang="ko"] .sub { letter-spacing: 0.1em; }
-html[data-lang="ko"] .fact-title { letter-spacing: 0.14em; }
-html[data-lang="ko"] .hero-tagline { letter-spacing: 0.08em; text-indent: 0.08em; }
-html[data-lang="ko"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
+/* CJK는 라틴만큼 자간을 벌리면 어색하다 — 해당 모드에서만 줄인다 */
+html[data-lang="ko"] .sub, html[data-lang="ja"] .sub, html[data-lang="zh"] .sub { letter-spacing: 0.1em; }
+html[data-lang="ko"] .fact-title, html[data-lang="ja"] .fact-title, html[data-lang="zh"] .fact-title { letter-spacing: 0.14em; }
+html[data-lang="ko"] .hero-tagline, html[data-lang="ja"] .hero-tagline, html[data-lang="zh"] .hero-tagline { letter-spacing: 0.08em; text-indent: 0.08em; }
+html[data-lang="ko"] .topbar-nav a, html[data-lang="ja"] .topbar-nav a, html[data-lang="zh"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
+
+/* CJK 본문 폰트 — Segoe UI에는 가나·한자가 없어 어색한 폴백을 막는다 */
+:lang(ja) { font-family: 'Segoe UI', 'Yu Gothic UI', 'Meiryo', 'Hiragino Kaku Gothic ProN', sans-serif; }
+:lang(zh) { font-family: 'Segoe UI', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', sans-serif; }
 
 /* ---- 필름 그레인 (전면 고정 오버레이) ---- */
 .grain {
@@ -127,23 +139,19 @@ html[data-lang="ko"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
   text-decoration: none;
 }
 .topbar-nav a:hover { color: var(--blood-hi); }
-.lang-toggle { display: flex; align-items: center; gap: 8px; justify-self: end; }
-.lang-sep { color: var(--ink-faint); }
-.lang-btn {
-  background: none;
-  border: none;
-  color: var(--ink-faint);
+.lang-select {
+  justify-self: end;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  color: var(--ink);
   font-family: var(--mono);
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.04em;
+  padding: 5px 8px;
   cursor: pointer;
-  padding: 4px 2px;
 }
-.lang-btn:hover { color: var(--ink); }
-.lang-btn.active {
-  color: var(--blood-hi);
-  border-bottom: 1px solid var(--blood);
-}
+.lang-select:hover { border-color: var(--blood); }
+.lang-select:focus-visible { outline: 2px solid var(--blood-hi); outline-offset: 2px; }
 
 /* ---- 히어로 ---- */
 .hero {
@@ -247,7 +255,7 @@ html[data-lang="ko"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
   letter-spacing: 0.08em;
   opacity: 0.65;
 }
-.btn:focus-visible, .lang-btn:focus-visible, .shot:focus-visible {
+.btn:focus-visible, .shot:focus-visible {
   outline: 2px solid var(--blood-hi);
   outline-offset: 3px;
 }
