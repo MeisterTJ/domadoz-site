@@ -7,7 +7,7 @@
   var root = document.documentElement;
   var select = document.getElementById('lang-select');
   /* data-lang 코드 → BCP 47 lang 속성값 */
-  var LANGS = { en: 'en', ko: 'ko', ja: 'ja', fr: 'fr', de: 'de', es: 'es', ru: 'ru', zh: 'zh-Hans', pt: 'pt-BR' };
+  var LANGS = { en: 'en', ko: 'ko', ja: 'ja', fr: 'fr', de: 'de', es: 'es', ru: 'ru', zh: 'zh-Hans', zht: 'zh-Hant', pt: 'pt-BR' };
 
   function setLang(lang) {
     if (!LANGS[lang]) { lang = 'en'; }

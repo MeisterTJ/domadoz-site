@@ -84,17 +84,20 @@ html:not([data-lang="de"]) .l-de { display: none !important; }
 html:not([data-lang="es"]) .l-es { display: none !important; }
 html:not([data-lang="ru"]) .l-ru { display: none !important; }
 html:not([data-lang="zh"]) .l-zh { display: none !important; }
+html:not([data-lang="zht"]) .l-zht { display: none !important; }
 html:not([data-lang="pt"]) .l-pt { display: none !important; }
 
 /* CJK는 라틴만큼 자간을 벌리면 어색하다 — 해당 모드에서만 줄인다 */
-html[data-lang="ko"] .sub, html[data-lang="ja"] .sub, html[data-lang="zh"] .sub { letter-spacing: 0.1em; }
-html[data-lang="ko"] .fact-title, html[data-lang="ja"] .fact-title, html[data-lang="zh"] .fact-title { letter-spacing: 0.14em; }
-html[data-lang="ko"] .hero-tagline, html[data-lang="ja"] .hero-tagline, html[data-lang="zh"] .hero-tagline { letter-spacing: 0.08em; text-indent: 0.08em; }
-html[data-lang="ko"] .topbar-nav a, html[data-lang="ja"] .topbar-nav a, html[data-lang="zh"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
+html[data-lang="ko"] .sub, html[data-lang="ja"] .sub, html[data-lang="zh"] .sub, html[data-lang="zht"] .sub { letter-spacing: 0.1em; }
+html[data-lang="ko"] .fact-title, html[data-lang="ja"] .fact-title, html[data-lang="zh"] .fact-title, html[data-lang="zht"] .fact-title { letter-spacing: 0.14em; }
+html[data-lang="ko"] .hero-tagline, html[data-lang="ja"] .hero-tagline, html[data-lang="zh"] .hero-tagline, html[data-lang="zht"] .hero-tagline { letter-spacing: 0.08em; text-indent: 0.08em; }
+html[data-lang="ko"] .topbar-nav a, html[data-lang="ja"] .topbar-nav a, html[data-lang="zh"] .topbar-nav a, html[data-lang="zht"] .topbar-nav a { letter-spacing: 0.04em; font-size: 12px; }
 
-/* CJK 본문 폰트 — Segoe UI에는 가나·한자가 없어 어색한 폴백을 막는다 */
+/* CJK 본문 폰트 — Segoe UI에는 가나·한자가 없어 어색한 폴백을 막는다.
+   :lang(zh)는 zh-Hant에도 매칭되므로 번체 규칙을 반드시 뒤에 둔다 */
 :lang(ja) { font-family: 'Segoe UI', 'Yu Gothic UI', 'Meiryo', 'Hiragino Kaku Gothic ProN', sans-serif; }
 :lang(zh) { font-family: 'Segoe UI', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', sans-serif; }
+:lang(zh-Hant) { font-family: 'Segoe UI', 'Microsoft JhengHei UI', 'Microsoft JhengHei', 'PingFang TC', sans-serif; }
 
 /* ---- 필름 그레인 (전면 고정 오버레이) ---- */
 .grain {
