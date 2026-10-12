@@ -62,19 +62,4 @@
     else if (e.key === 'ArrowRight') { show(idx + 1); }
   });
 
-  /* ---- 스크롤 리빌 ---- */
-  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add('vis');
-          io.unobserve(en.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    reveals.forEach(function (r) { io.observe(r); });
-  } else {
-    reveals.forEach(function (r) { r.classList.add('vis'); });
-  }
 })();
